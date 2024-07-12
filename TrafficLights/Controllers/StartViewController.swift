@@ -36,6 +36,7 @@ final class StartViewController: UIViewController {
             if isValid {
                 let controller = TrafficLightViewController()
                 controller.carModelText = self?.carModelInputView.text
+                self?.carModelInputView.hideKeyboard()
                 self?.navigationController?.pushViewController(controller, animated: true)
             }
         }

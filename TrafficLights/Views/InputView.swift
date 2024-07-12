@@ -14,14 +14,11 @@ final class InputView: UIStackView {
         static let shakeAnimationDuration: CGFloat = 0.55
         static let showHideAnimationDuration: CGFloat = 0.1
         static let errorSpacing: CGFloat = 4.0
-        
     }
-    // MARK: - Properties
-    private var placeholderText: String?
 
     // MARK: - Actions
-    @objc private func hideKeyboard() {
-        textView.endEditing(true)
+    @objc func hideKeyboard() {
+        textField.endEditing(true)
     }
 
     // MARK: - Initializers
@@ -39,21 +36,19 @@ final class InputView: UIStackView {
 
     // MARK: - Public Methods
     func configure(withPlaceholder placeholder: String?, errorText: String) {
-        placeholderText = placeholder
+        textField.placeholder = placeholder
         errorLabel.text = errorText
-        setPlaceholderIfPresent()
     }
 
     func validate(for regex: String, completion: (Bool) -> Void) {
-        var isValid = textView.text != placeholderText
-        isValid = isValid && textView.text?.matches(regex) ?? false
+        let isValid = textField.text?.matches(regex) ?? false
         isValid ? hideError()
                 : showError()
         completion(isValid)
     }
     
     var text: String? {
-        textView.text
+        textField.text
     }
 
     // MARK: - Private Methods
@@ -63,7 +58,7 @@ final class InputView: UIStackView {
             layoutIfNeeded()
         }
         UIView.animate(withDuration: Constants.showHideAnimationDuration, animations: animationBlock)
-        textView.layer.borderColor = UIColor.gray.cgColor
+        textField.layer.borderColor = UIColor.gray.cgColor
     }
 
     private func showError() {
@@ -72,7 +67,7 @@ final class InputView: UIStackView {
             layoutIfNeeded()
         }
         UIView.animate(withDuration: Constants.showHideAnimationDuration, animations: animationBlock)
-        textView.layer.borderColor = UIColor.systemRed.cgColor
+        textField.layer.borderColor = UIColor.systemRed.cgColor
         shake()
         hideKeyboard()
     }
@@ -90,54 +85,45 @@ final class InputView: UIStackView {
         axis         = .vertical
         distribution = .fill
         alignment    = .fill
+        let leadingInsetView = UIView()
+        leadingInsetView.frame.size.width = TLConstants.defaultSideMargin / 2
+        textField.leftView = leadingInsetView
     }
     
     private func setupLayout() {
-        addArrangedSubview(textView)
+        addArrangedSubview(textField)
         addArrangedSubview(errorLabel)
         NSLayoutConstraint.activate([
-            textView.heightAnchor.constraint(equalToConstant: TLConstants.appleTouchSize.height)
+            textField.heightAnchor.constraint(equalToConstant: TLConstants.appleTouchSize.height)
         ])
-    }
-    
-    private func setPlaceholderIfPresent() {
-        guard let placeholder = placeholderText, placeholder.isNotEmpty else {
-            return
-        }
-        textView.text = placeholder
-        textView.textColor = .placeholderText
-        DispatchQueue.main.async { [unowned self] in
-            textView.font = .systemFont(ofSize: TLConstants.FontSize.placeholder, weight: .regular)
-            textView.layoutIfNeeded()
-        }
     }
 
     // MARK: - UI Elements
     private lazy var errorLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: TLConstants.FontSize.error)
-        label.textColor = .systemRed
+        label.font          = .systemFont(ofSize: TLConstants.FontSize.error)
+        label.textColor     = .systemRed
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.isHidden = true
+        label.isHidden      = true
         return label
     }()
 
-    private lazy var textView: TextView = {
-        let textView = TextView()
-        textView.font = .systemFont(ofSize: TLConstants.FontSize.text, weight: .semibold)
-        textView.textColor = .black
-        textView.textAlignment = .left
-        textView.layer.borderColor = UIColor.gray.cgColor
-        textView.layer.borderWidth = 1.0 / UIScreen.main.scale
-        textView.layer.cornerRadius = Constants.textViewCornerRadius
-        textView.inputAccessoryView = keyboardToolBar
-        textView.autocorrectionType = .no
-        textView.spellCheckingType = .no
-        textView.autocapitalizationType = .none
-        textView.showsHorizontalScrollIndicator = false
-        textView.delegate = self
-        return textView
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.font                   = .systemFont(ofSize: TLConstants.FontSize.text, weight: .semibold)
+        textField.textColor              = .black
+        textField.textAlignment          = .left
+        textField.layer.borderColor      = UIColor.gray.cgColor
+        textField.layer.borderWidth      = 1.0 / UIScreen.main.scale
+        textField.layer.cornerRadius     = Constants.textViewCornerRadius
+        textField.returnKeyType          = .done
+        textField.autocorrectionType     = .no
+        textField.spellCheckingType      = .no
+        textField.autocapitalizationType = .none
+        textField.delegate               = self
+        textField.leftViewMode           = .always
+        return textField
     }()
 
     private lazy var keyboardToolBar: UIToolbar = {
@@ -154,19 +140,13 @@ final class InputView: UIStackView {
     }()
 }
 
-extension InputView: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == placeholderText {
-            textView.text = ""
-            textView.textColor = .black
-            textView.font = .systemFont(ofSize: TLConstants.FontSize.text, weight: .semibold)
-        }
-        hideError()
+extension InputView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" {
-            setPlaceholderIfPresent()
-        }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideError()
     }
 }

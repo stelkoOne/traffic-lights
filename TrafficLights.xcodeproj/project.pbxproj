@@ -13,7 +13,6 @@
 		6E985F2D2C3F319C00AB2B70 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F2C2C3F319C00AB2B70 /* String+Helpers.swift */; };
 		6E985F302C3F31C100AB2B70 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F2F2C3F31C100AB2B70 /* InputView.swift */; };
 		6E985F322C3F31D900AB2B70 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F312C3F31D900AB2B70 /* UIView+Helpers.swift */; };
-		6E985F342C3F325000AB2B70 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F332C3F325000AB2B70 /* TextView.swift */; };
 		6E985F372C3F329800AB2B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F362C3F329800AB2B70 /* Constants.swift */; };
 		6E985F3B2C3F37F600AB2B70 /* TrafficLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F3A2C3F37F600AB2B70 /* TrafficLightViewController.swift */; };
 		6EB058292C3D9F2E00D23762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB058282C3D9F2E00D23762 /* AppDelegate.swift */; };
@@ -29,7 +28,6 @@
 		6E985F2C2C3F319C00AB2B70 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		6E985F2F2C3F31C100AB2B70 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		6E985F312C3F31D900AB2B70 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
-		6E985F332C3F325000AB2B70 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		6E985F362C3F329800AB2B70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6E985F3A2C3F37F600AB2B70 /* TrafficLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightViewController.swift; sourceTree = "<group>"; };
 		6EB058252C3D9F2E00D23762 /* TrafficLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				6E985F2F2C3F31C100AB2B70 /* InputView.swift */,
-				6E985F332C3F325000AB2B70 /* TextView.swift */,
 				6E42B8462C40B5D000F25652 /* TrafficLightView.swift */,
 				6E42B84A2C40B69900F25652 /* SingleTrafficLightView.swift */,
 			);
@@ -205,7 +202,6 @@
 				6E985F3B2C3F37F600AB2B70 /* TrafficLightViewController.swift in Sources */,
 				6E985F372C3F329800AB2B70 /* Constants.swift in Sources */,
 				6E985F302C3F31C100AB2B70 /* InputView.swift in Sources */,
-				6E985F342C3F325000AB2B70 /* TextView.swift in Sources */,
 				6EB058292C3D9F2E00D23762 /* AppDelegate.swift in Sources */,
 				6E42B8472C40B5D000F25652 /* TrafficLightView.swift in Sources */,
 				6E985F2D2C3F319C00AB2B70 /* String+Helpers.swift in Sources */,
@@ -359,6 +355,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,6 +387,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
