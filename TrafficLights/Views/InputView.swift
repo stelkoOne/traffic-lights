@@ -51,6 +51,10 @@ final class InputView: UIStackView {
                 : showError()
         completion(isValid)
     }
+    
+    var text: String? {
+        textView.text
+    }
 
     // MARK: - Private Methods
     private func hideError() {
@@ -102,7 +106,10 @@ final class InputView: UIStackView {
         }
         textView.text = placeholder
         textView.textColor = .placeholderText
-        textView.font = .systemFont(ofSize: TLConstants.FontSize.placeholder, weight: .regular)
+        DispatchQueue.main.async { [unowned self] in
+            textView.font = .systemFont(ofSize: TLConstants.FontSize.placeholder, weight: .regular)
+            textView.layoutIfNeeded()
+        }
     }
 
     // MARK: - UI Elements
@@ -128,6 +135,7 @@ final class InputView: UIStackView {
         textView.autocorrectionType = .no
         textView.spellCheckingType = .no
         textView.autocapitalizationType = .none
+        textView.showsHorizontalScrollIndicator = false
         textView.delegate = self
         return textView
     }()

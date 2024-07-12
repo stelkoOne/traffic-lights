@@ -1,5 +1,5 @@
 //
-//  TLConstants.swift
+//  Constants.swift
 //  TrafficLights
 //
 //  Created by Stiliyan Yankov on 11.07.24.
@@ -15,5 +15,6 @@ enum TLConstants {
         static let error: CGFloat = 11.0
         static let placeholder: CGFloat = 14.0
         static let text: CGFloat = 16.0
+        static let carModel: CGFloat = 20.0
     }
 }

@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E42B8472C40B5D000F25652 /* TrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E42B8462C40B5D000F25652 /* TrafficLightView.swift */; };
+		6E42B8492C40B60200F25652 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E42B8482C40B60200F25652 /* Enums.swift */; };
+		6E42B84B2C40B69900F25652 /* SingleTrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E42B84A2C40B69900F25652 /* SingleTrafficLightView.swift */; };
 		6E985F2D2C3F319C00AB2B70 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F2C2C3F319C00AB2B70 /* String+Helpers.swift */; };
 		6E985F302C3F31C100AB2B70 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F2F2C3F31C100AB2B70 /* InputView.swift */; };
 		6E985F322C3F31D900AB2B70 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F312C3F31D900AB2B70 /* UIView+Helpers.swift */; };
 		6E985F342C3F325000AB2B70 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F332C3F325000AB2B70 /* TextView.swift */; };
-		6E985F372C3F329800AB2B70 /* TLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F362C3F329800AB2B70 /* TLConstants.swift */; };
+		6E985F372C3F329800AB2B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F362C3F329800AB2B70 /* Constants.swift */; };
+		6E985F3B2C3F37F600AB2B70 /* TrafficLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E985F3A2C3F37F600AB2B70 /* TrafficLightViewController.swift */; };
 		6EB058292C3D9F2E00D23762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB058282C3D9F2E00D23762 /* AppDelegate.swift */; };
 		6EB0582D2C3D9F2E00D23762 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB0582C2C3D9F2E00D23762 /* StartViewController.swift */; };
 		6EB058322C3D9F3100D23762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB058312C3D9F3100D23762 /* Assets.xcassets */; };
@@ -19,11 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E42B8462C40B5D000F25652 /* TrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightView.swift; sourceTree = "<group>"; };
+		6E42B8482C40B60200F25652 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		6E42B84A2C40B69900F25652 /* SingleTrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTrafficLightView.swift; sourceTree = "<group>"; };
 		6E985F2C2C3F319C00AB2B70 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		6E985F2F2C3F31C100AB2B70 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		6E985F312C3F31D900AB2B70 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		6E985F332C3F325000AB2B70 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		6E985F362C3F329800AB2B70 /* TLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLConstants.swift; sourceTree = "<group>"; };
+		6E985F362C3F329800AB2B70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6E985F3A2C3F37F600AB2B70 /* TrafficLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightViewController.swift; sourceTree = "<group>"; };
 		6EB058252C3D9F2E00D23762 /* TrafficLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB058282C3D9F2E00D23762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EB0582C2C3D9F2E00D23762 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 			children = (
 				6E985F2F2C3F31C100AB2B70 /* InputView.swift */,
 				6E985F332C3F325000AB2B70 /* TextView.swift */,
+				6E42B8462C40B5D000F25652 /* TrafficLightView.swift */,
+				6E42B84A2C40B69900F25652 /* SingleTrafficLightView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -64,7 +74,8 @@
 		6E985F352C3F328A00AB2B70 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				6E985F362C3F329800AB2B70 /* TLConstants.swift */,
+				6E985F362C3F329800AB2B70 /* Constants.swift */,
+				6E42B8482C40B60200F25652 /* Enums.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -81,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				6EB0582C2C3D9F2E00D23762 /* StartViewController.swift */,
+				6E985F3A2C3F37F600AB2B70 /* TrafficLightViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -188,10 +200,14 @@
 			files = (
 				6E985F322C3F31D900AB2B70 /* UIView+Helpers.swift in Sources */,
 				6EB0582D2C3D9F2E00D23762 /* StartViewController.swift in Sources */,
-				6E985F372C3F329800AB2B70 /* TLConstants.swift in Sources */,
+				6E42B84B2C40B69900F25652 /* SingleTrafficLightView.swift in Sources */,
+				6E42B8492C40B60200F25652 /* Enums.swift in Sources */,
+				6E985F3B2C3F37F600AB2B70 /* TrafficLightViewController.swift in Sources */,
+				6E985F372C3F329800AB2B70 /* Constants.swift in Sources */,
 				6E985F302C3F31C100AB2B70 /* InputView.swift in Sources */,
 				6E985F342C3F325000AB2B70 /* TextView.swift in Sources */,
 				6EB058292C3D9F2E00D23762 /* AppDelegate.swift in Sources */,
+				6E42B8472C40B5D000F25652 /* TrafficLightView.swift in Sources */,
 				6E985F2D2C3F319C00AB2B70 /* String+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

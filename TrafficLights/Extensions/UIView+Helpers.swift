@@ -18,4 +18,15 @@ extension UIView {
     func setShown() {
         isHidden = false
     }
+    
+    func setBackgroundColor(_ color: UIColor, animated: Bool = false) {
+        let animationBlock = {
+            self.backgroundColor = color
+        }
+        guard animated else {
+            animationBlock()
+            return
+        }
+        UIView.animate(withDuration: 0.2, animations: animationBlock)
+    }
 }

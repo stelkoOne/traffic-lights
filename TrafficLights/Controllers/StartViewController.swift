@@ -19,13 +19,18 @@ final class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        navigationItem.title = "Garage"
         setupLayout()
     }
     
     // MARK: - Actions
     @objc private func startDrivingAction() {
         carModelInputView.validate(for: Constants.carModelRegex) { [weak self] isValid in
-            print(isValid ? "VALID" : "INVALID")
+            if isValid {
+                let controller = TrafficLightViewController()
+                controller.carModelText = self?.carModelInputView.text
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
     
