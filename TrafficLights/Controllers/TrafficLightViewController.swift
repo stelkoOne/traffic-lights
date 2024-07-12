@@ -30,21 +30,35 @@ final class TrafficLightViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupLayout() {
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor .constraint(equalTo: view.leadingAnchor),
+            scrollView.topAnchor     .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor  .constraint(equalTo: view.bottomAnchor)
+        ])
         let bufferView = UIView()
         bufferView.backgroundColor = .clear
         containerView.addArrangedSubview(carModelLabel)
         containerView.addArrangedSubview(trafficLightView)
         containerView.addArrangedSubview(bufferView)
-        view.addSubview(containerView)
+        scrollView.addSubview(containerView)
         NSLayoutConstraint.activate([
-            containerView.leadingAnchor .constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,  constant:  TLConstants.defaultSideMargin),
-            containerView.topAnchor     .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,      constant:  TLConstants.defaultSideMargin),
-            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -TLConstants.defaultSideMargin),
-            containerView.bottomAnchor  .constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,   constant: -TLConstants.defaultSideMargin)
+            containerView.leadingAnchor .constraint(equalTo: scrollView.leadingAnchor,  constant:  TLConstants.defaultSideMargin),
+            containerView.topAnchor     .constraint(equalTo: scrollView.topAnchor,      constant:  TLConstants.defaultSideMargin),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -TLConstants.defaultSideMargin),
+            containerView.bottomAnchor  .constraint(equalTo: scrollView.bottomAnchor,   constant: -TLConstants.defaultSideMargin),
+            containerView.centerXAnchor .constraint(equalTo: scrollView.centerXAnchor)
         ])
     }
 
     // MARK: - UI Elements
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     private lazy var trafficLightView: TrafficLightView = {
         TrafficLightView()
     }()
@@ -66,6 +80,7 @@ final class TrafficLightViewController: UIViewController {
         label.textColor     = .darkText
         label.numberOfLines = 0
         label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
 }

@@ -20,7 +20,7 @@ final class InputView: UIStackView {
     private var placeholderText: String?
 
     // MARK: - Actions
-    @objc private func hideKeyboard() {
+    @objc func hideKeyboard() {
         textView.endEditing(true)
     }
 
