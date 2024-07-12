@@ -14,7 +14,7 @@ final class SingleLightView: UIView {
     }
 
     // MARK: - Properties
-    private let type: TrafficLightType
+    private(set) var type: TrafficLightType
 
     // MARK: - Initializers
     init(ofType type: TrafficLightType) {
@@ -36,10 +36,6 @@ final class SingleLightView: UIView {
     func turnOff() {
         setBackgroundColor(.lightGray, animated: true)
     }
-    
-    var delay: DispatchTime {
-        type.delay
-    }
 
     // MARK: - Private Methods
     private func setupLayout() {
@@ -50,4 +46,3 @@ final class SingleLightView: UIView {
         layer.cornerRadius = Constants.height / 2
     }
 }
-

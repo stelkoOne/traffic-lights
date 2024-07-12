@@ -41,7 +41,7 @@ final class TrafficLightView: UIView {
     
     private func startRedSignal() {
         redLightView.turnOn()
-        DispatchQueue.main.asyncAfter(deadline: redLightView.delay) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: redLightView.type.delay) { [weak self] in
             self?.redLightView.turnOff()
             self?.startOrangeSignal(next: .green)
         }
@@ -50,7 +50,7 @@ final class TrafficLightView: UIView {
     
     private func startOrangeSignal(next: TrafficLightType) {
         orangeLightView.turnOn()
-        DispatchQueue.main.asyncAfter(deadline: orangeLightView.delay) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: orangeLightView.type.delay) { [weak self] in
             self?.orangeLightView.turnOff()
             switch next {
             case .green:
@@ -65,7 +65,7 @@ final class TrafficLightView: UIView {
     
     private func startGreenSignal() {
         greenLightView.turnOn()
-        DispatchQueue.main.asyncAfter(deadline: greenLightView.delay) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: greenLightView.type.delay) { [weak self] in
             self?.greenLightView.turnOff()
             self?.startOrangeSignal(next: .red)
         }

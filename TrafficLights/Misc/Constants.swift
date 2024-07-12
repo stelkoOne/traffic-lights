@@ -12,9 +12,9 @@ enum TLConstants {
     static let defaultSideMargin: CGFloat = 16.0
     
     enum FontSize {
-        static let error: CGFloat = 11.0
+        static let error:       CGFloat = 11.0
         static let placeholder: CGFloat = 14.0
-        static let text: CGFloat = 16.0
-        static let carModel: CGFloat = 20.0
+        static let text:        CGFloat = 16.0
+        static let carModel:    CGFloat = 20.0
     }
 }
